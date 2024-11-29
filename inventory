@@ -1,0 +1,19 @@
+[Linux]
+10.10.10.130 ansible_ssh_user='vagrant' ansible_ssh_pass='vagrant' ansible_become_pass='vagrant'
+10.10.10.131 ansible_ssh_user='vagrant' ansible_ssh_pass='vagrant' ansible_become_pass='vagrant'
+10.10.10.132 ansible_ssh_user='vagrant' ansible_ssh_pass='vagrant' ansible_become_pass='vagrant'
+10.10.10.133 ansible_ssh_user='vagrant' ansible_ssh_pass='vagrant' ansible_become_pass='vagrant'
+10.10.10.134 ansible_ssh_user='vagrant' ansible_ssh_pass='vagrant' ansible_become_pass='vagrant'
+
+[Debian]
+10.10.10.130 ansible_ssh_user='vagrant' ansible_ssh_pass='vagrant' ansible_become_pass='vagrant'
+10.10.10.131 ansible_ssh_user='vagrant' ansible_ssh_pass='vagrant' ansible_become_pass='vagrant'
+
+[Centos]
+10.10.10.133 ansible_ssh_user='vagrant' ansible_ssh_pass='vagrant' ansible_become_pass='vagrant'
+
+[Ubuntu]
+10.10.10.132 ansible_ssh_user='vagrant' ansible_ssh_pass='vagrant' ansible_become_pass='vagrant'
+
+[OpenUSE]
+10.10.10.134 ansible_ssh_user='vagrant' ansible_ssh_pass='vagrant' ansible_become_pass='vagrant'
