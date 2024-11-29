@@ -1,0 +1,70 @@
+- name: kontroll ja kui pole siis paigaldus
+  hosts: all
+  become: true
+  tasks:
+    - name: debian servude check n deploy
+      when: ansible_distribution in ["Debian", "Ubuntu"]
+      apt:
+        name: "{{ item }}"
+        state: present
+        update_cache: yes
+      loop:
+        - snmpd
+        - tmux
+        - mc
+        - wget
+        - tree
+        - git
+      notify:
+        - Report missing packages
+
+    - name: Docker paigaldus vajalikus hostis
+      when: inventory_hostname == "christen-dockerhost" and ansible_distribution == "Debian"
+      apt:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - apt-transport-https
+        - ca-certificates
+        - curl
+        - gnupg-agent
+        - software-properties-common
+      notify:
+        - Report missing packages
+
+    - name: Paigalda CentOS-süsteemides vajalikud programmid
+      when: ansible_distribution == "CentOS"
+      yum:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - net-snmp
+        - net-snmp-utils
+        - tmux
+        - mc
+        - wget
+        - tree
+        - git
+      notify:
+        - Report missing packages
+
+    - name: Paigalda openSUSE süsteemides vajalik tarkvara
+      when: ansible_distribution == "openSUSE"
+      zypper:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - tmux
+        - mc
+        - wget
+        - tree
+        - git
+        - net-snmp
+      notify:
+        - Report missing packages
+
+  handlers:
+    - name: report missing
+      debug:
+        msg: "Paigaldatud puuduv tarkvara masinale {{ inventory_hostname }}"
+...
