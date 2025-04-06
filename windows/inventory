@@ -1,0 +1,25 @@
+[allwindows:children]
+windows1
+windows2
+
+[windows1]
+windows1 ansible_host=10.0.26.20
+
+[windows1:vars]
+ansible_user=administrator
+ansible_password=Passw0rd
+ansible_port=5986
+ansible_connection=winrm
+ansible_winrm_transport=basic
+ansible_winrm_server_cert_validation=ignore
+
+[windows2]
+windows2 ansible_host=10.0.26.10
+
+[windows2:vars]
+ansible_user=kasutaja
+ansible_password=Passw0rd
+ansible_port=5986
+ansible_connection=winrm
+ansible_winrm_transport=basic
+ansible_winrm_server_cert_validation=ignore
