@@ -1,0 +1,4 @@
+Hosts faili sisu on lihtsalt teine võimalus kuidas serveritele ligi pääseda ntlmiga
+Failid tuleb laadida /etc/ansible ja eeldab, et ansible on installitud korrektselt samuti pywinrmi vajalikkus
+Windows serverid peavad lubama winrmi ligipääsu portidele
+Command: ansible-playbook -i inventory playbook.yml, et jooksutada playbooki
