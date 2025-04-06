@@ -1,0 +1,28 @@
+---
+- name: Folder creation
+  hosts: allwindows
+  gather_facts: no
+
+  tasks:
+    - name: Dp path
+      win_shell: '[Environment]::GetFolderPath("Desktop")'
+      register: desktop_path
+
+    - name: Create folder
+      win_file:
+        path: "{{ desktop_path.stdout | trim }}\\SeeOnTestFolder"
+        state: directory
+
+- name: Get Windows version using PowerShell
+  hosts: allwindows
+  gather_facts: no
+
+  tasks:
+    - name: Get OS v
+      win_shell: |
+        Get-CimInstance Win32_OperatingSystem | Select-Object Caption, Version
+      register: os_info
+
+    - name: Show OS v
+      debug:
+        msg: "{{ inventory_hostname }} is running {{ os_info.stdout_lines[3] }}"
