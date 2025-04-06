@@ -1,0 +1,5 @@
+[windows]
+windows_client ansible_host=10.0.26.10 ansible_user=kasutaja ansible_password=Passw0rd ansible_connection=winrm ansible_winrm_transport=ntlm ansible_winrm_port=5985 ansible_winrm_scheme=http
+
+[windows_server]
+windows_server ansible_host=10.0.26.20 ansible_user=Administrator ansible_password=Passw0rd ansible_connection=winrm ansible_winrm_transport=ntlm ansible_winrm_port=5985 ansible_winrm_scheme=http
